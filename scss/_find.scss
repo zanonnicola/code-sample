@@ -1,0 +1,144 @@
+.hero-image__find {
+	background: url('../img/hero-find-us.jpg') no-repeat center center;
+  	background-size: cover;
+}
+.no-backgroundsize .hero-image__find {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-find-us.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-find-us.jpg', sizingMethod='scale')";
+}
+.map-container {
+        position: relative;
+        padding-bottom: 45%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+        @include breakpoint(smallScreen) {
+        	padding-bottom: 103%;
+        }
+    }
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+.map-overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+.link2 {
+	text-align:left;
+	font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+	@include font-size(2);
+	line-height: 25px;
+	display:block;
+	margin:33px 0 30px 0;
+	color: $green;
+	&:hover {
+		color: $gold;
+	}
+}
+.info-table {
+	display:table;
+	width:100%;
+	padding-bottom:20px;
+	margin-bottom:$space;
+	border-bottom:1px solid $border;
+}
+.info-table__cell {
+	@include breakpoint(mobile) {
+		width:50%;
+		display:table-cell;
+		min-width: 285px;
+	}
+}
+.contacts-container {
+	margin:$space 0 0 ;
+	@include breakpoint(smallScreen) {
+		margin:0;
+	}
+	a {
+		font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+		color:$green;
+		@include font-size(1.7);
+		line-height:32px;
+		transition:color 0.5s ease;
+		&:hover {
+			color: $gold;
+		}
+	}
+	p {
+		font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+		color:$green;
+		@include font-size(2);
+		line-height:32px;
+	}
+}
+h4.small-heading, h5.small-heading, h6.small-heading {
+	font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+	color:$gold;
+	font-weight:400;
+	letter-spacing:1px;
+	@include font-size(1.2);
+	line-height:24px;
+	text-transform:uppercase;
+	margin:0;
+}
+.sharing {
+	margin:20px 0;
+	a {
+		display:block;
+		@include font-size(1.6);
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		img {
+			padding-right:5px;
+			position: relative;
+			top:3px;
+		}
+	}
+}
+.small-links {
+	a {
+		@include font-size(1.6);
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		line-height:32px;
+		display:inline-block;
+		&:first-of-type {
+			margin-right:20px;
+		}
+	}
+}
+.find-extra {
+	margin:$space 0 $space*2 0;
+	@include breakpoint(tablet) {
+		margin:100px 0;
+	}
+	padding:$space;
+	background-color: $green2;
+	p {
+		color: $green;
+		margin:0 0 20px 0;
+		@include font-size(1.6);
+		line-height:24px;
+		font-style:italic;
+	}
+	a {
+		// @include font-size(1.6);
+		// font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		// line-height:32px;
+		color: $green;
+		// display:block;
+		transition:color 0.5s ease;
+		&:hover {
+			color:$gold;
+		}
+		// margin-bottom:$space;
+		// @include breakpoint(custom) {
+		// 	margin-bottom:0;
+		// }
+	}
+}

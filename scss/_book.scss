@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Booking
+   ========================================================================== */
+
+#OT_searchWrapperAll {
+	text-align: left;
+	color: grey;
+	margin-top: 0 !important;
+	height: 275px !important;
+}
+
+#OT_searchWrapperAll, 
+#OT_searchWrapperAll *, 
+#OT_searchWrapperAll *:before, 
+#OT_searchWrapperAll *:after {
+	box-sizing: content-box;
+}
+#OT_searchWrapperAll {
+	height: 280px;
+}
+#dateDisplay, .OT_feedTitle {
+	width: auto !important;
+	display: none !important;
+}
+
+#OT_defList dt {
+	text-align: left;
+	width: auto;
+	position: static;
+	padding: 0;
+	margin: 0;
+	@include font-size(1.3);
+	width:100%;
+	color: gray;
+	font-family: 'Platin', Georgia, serif;
+	font-style:italic;
+	line-height: 22px;
+	letter-spacing: 2px;
+	color: $green;
+}
+#OT_defList {
+	width:100%;
+}
+#OT_defList dd {
+	position: static !important;
+}
+#OT_date {
+	width:100% !important;
+}
+#OT_searchWrapperAll input[type="text"], 
+#OT_searchWrapperAll select, 
+#OT_searchWrapperAll option {
+	width: 100% !important;
+	box-sizing: border-box !important;
+	margin: 0 0 12px !important;
+	line-height: 2;
+	//max-width:170px;
+	height: 40px;
+	background: #fff;
+	padding: 7px;
+	border: 1px solid $green;
+	border-radius: 0;
+	-webkit-appearance: none;
+	color: $grey;
+	font-family: 'Platin', Georgia, serif;
+	letter-spacing: 2px;
+}
+#OT_searchWrapperAll #OT_submitWrap {
+	position: relative !important;
+	display: inline-block;
+	margin: 0;
+	top: 0;
+	left: 0;
+	margin-top: 12px;
+}
+.btn--new-submit {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	text-align: left;
+	z-index: 1;
+	display: block;
+	background-color: $green;
+	color: #fff;
+	border-radius: 0;
+	border: none;
+  	line-height: 13px;
+  	@include font-size(1.5);
+	-webkit-appearance: none;
+	appearance:none;
+	transition: .25s ease-out;
+	padding:5px 10px 5px 3px;
+	border:none;
+	text-shadow: none;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	&:hover {
+		color: $gold;
+	}
+}
+
+@import "picker.scss";
+
+/* Pop Up Window rendering below in the viewport -- Fix --
+   ========================================================================== */
+#TB_window {
+top: 4% !important;
+}
+
+
+
+/* Hide New iframe from openTable breaking layout
+   ========================================================================== */
+#cal1Shim {
+display: none !important;
+}
+
+.opentable {
+	@include clearfix();
+}
+
+#mobileImg {
+	margin-bottom:$space*2;
+}
+
+.book__header {
+	border-bottom:1px solid rgba(255,255,255, 0.25);
+	padding:27.5px 0;
+	@include breakpoint(smallScreen) {
+		padding:29.5px 0;
+	}
+	text-align:center;
+	a {
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		@include font-size(1.5);
+		color: #fff;
+		margin:0;
+		line-height:14px;
+		text-transform:uppercase;
+		display:block;
+		position: relative;
+		&:after {
+			content: "x";
+			position: absolute;
+			top:0;
+			right:30px;
+			color: #fff;
+			font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+			font-weight:600;
+		}
+	}
+}
+.opentable {
+	padding:$space*2 $spaceLeft $space $spaceLeft;
+}
+.centered {
+	text-align:center;
+	p {
+		padding:0 10px;
+		color: #fff;
+		@include font-size(1.3);
+		line-height:19px;
+		a {
+			color: #fff;
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+}

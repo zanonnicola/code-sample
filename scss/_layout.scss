@@ -1,0 +1,106 @@
+.wrapper {
+	max-width: $maxWidth;
+	margin:0 auto;
+	padding:0 $spaceLeft;
+	@include breakpoint(desktop) {
+		padding:0;
+	}
+}
+.wrapper-single {
+	max-width: 720px;
+	margin:0 auto;
+	padding:0 $spaceLeft;
+	@include breakpoint(desktop) {
+		padding:0;
+	}
+}
+.row {
+	@include clearfix();
+}
+.grid {
+	@include clearfix();
+	overflow: hidden;
+	@include breakpoint(custom) {
+    	margin-left: -$gutter2; /* same as your gutter */
+	}
+}
+.grid-col {
+	float: left;
+	width:100%;
+	@include breakpoint(custom) {
+		padding-left: $gutter2;
+	}
+}
+.grid-blog {
+	@include clearfix();
+	overflow: hidden;
+	@include breakpoint(custom) {
+    	margin-left: -$gutter*1.5; /* same as your gutter */
+	}
+}
+.blog-col {
+	float: left;
+	width:100%;
+	@include breakpoint(custom) {
+		padding-left: $gutter*1.5;
+	}
+}
+.col-1-2 {
+	width:100%;
+	@include breakpoint(smallScreen) {
+		width:50%;
+		float:left;
+	}
+}
+.col-3-4 {
+	width:100%;
+	@include breakpoint(custom) {
+		width:75%;
+	}
+}
+.col-1-4 {
+	width:100%;
+	@include breakpoint(custom) {
+		width:25%;
+	}
+}
+.col-2-3 {
+	width:100%;
+	@include breakpoint(smallScreen) {
+		width:60%;
+	}
+}
+.col-1-3 {
+	width:100%;
+	@include breakpoint(smallScreen) {
+		width:40%;
+	}
+}
+.box-1-2 {
+	width:100%;
+	@include breakpoint(custom) {
+		float: left;
+		width:50%;
+	}
+}
+.half {
+	width:100%;
+	@include breakpoint(mobile) {
+		float: left;
+		width:50%;
+	}
+}
+.half-1-3 {
+	width:100%;
+	@include breakpoint(mobile) {
+		float: left;
+		width:30%;
+	}
+}
+.half-2-3 {
+	width:100%;
+	@include breakpoint(mobile) {
+		float: left;
+		width:70%;
+	}
+}

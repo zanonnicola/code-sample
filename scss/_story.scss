@@ -1,0 +1,267 @@
+	.section-story {
+	@include breakpoint(mobile) {
+		min-height:100vh;
+  		position: relative;
+	}
+}
+.story-1 {
+	background: url('../img/story/mobile/hero-1.jpg') no-repeat center center;
+	background-size:cover;
+	@include breakpoint(tablet) {
+		background: url('../img/story/hero-1.jpg') no-repeat center center;
+		background-size:cover;
+	}
+}
+.no-backgroundsize .story-1 {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/hero-1.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/hero-1.jpg', sizingMethod='scale')";
+}
+.story-2 {
+	background: url('../img/story/mobile/crossing-the-pond.jpg') no-repeat center center;
+	background-size:cover;
+	@include breakpoint(tablet) {
+		background: url('../img/story/crossing-the-pond.jpg') no-repeat center center;
+		background-size:cover;
+	}
+}
+.no-backgroundsize .story-2 {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/crossing-the-pond.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/crossing-the-pond.jpg', sizingMethod='scale')";
+}
+.story-3 {
+	background: url('../img/story/mobile/dry-aging-process.jpg') no-repeat center center;
+	background-size:cover;
+	@include breakpoint(tablet) {
+		background: url('../img/story/dry-aging-process.jpg') no-repeat center center;
+		background-size:cover;
+	}
+}
+.no-backgroundsize .story-3 {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/dry-aging-process.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/dry-aging-process.jpg', sizingMethod='scale')";
+}
+.story-4 {
+	background: url('../img/story/mobile/service-states-style.jpg') no-repeat center center;
+	background-size:cover;
+	@include breakpoint(tablet) {
+		background: url('../img/story/service-states-style.jpg') no-repeat center center;
+		background-size:cover;
+	}
+}
+.no-backgroundsize .story-4 {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/service-states-style.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/story/service-states-style.jpg', sizingMethod='scale')";
+}
+.section-story__content {
+	padding:$space 20px;
+	@include breakpoint(mobile) {
+		@include centerY();
+		left: 5%;
+		max-width:500px;
+		padding:0;
+	}
+	&.pos-right {
+		@include breakpoint(mobile) {
+			left:auto;
+			right: 5%;
+			text-align:right;
+		}
+	}
+	h1 {
+		color: #fff;
+		font-weight:400;
+		@include font-size(4.4);
+		line-height:56px;
+		letter-spacing:-1px;
+		margin:0 0 34px 0;
+		@include breakpoint(mobile) {
+			margin:0 0 54px 0;
+			@include font-size(6.4);
+			line-height:76px;			
+		}
+	}
+	h2 {
+		color: #fff;
+		font-weight:400;
+		@include font-size(2.4);
+		line-height:36px;
+		letter-spacing:-1px;
+		margin:0 0 34px 0;
+		@include breakpoint(mobile) {
+			margin:0 0 54px 0;
+			@include font-size(3.2);
+			line-height:46px;			
+		}
+	}
+	p {
+		font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+		@include font-size(1.6);
+		line-height:26px;
+		color: #fff;
+		margin:0;
+		@include breakpoint(mobile) {
+			margin:0;
+			@include font-size(1.8);
+			line-height:30px;
+		}
+	}
+	p + p {
+		margin-top:20px;
+	}
+	&.copy-main {
+		p {
+			font-family: "Windsor", "Hoefler Text", Georgia, Garamond, Times, serif;
+			@include font-size(2);
+			line-height:30px;
+			color: #fff;
+			margin:0;
+			@include breakpoint(mobile) {
+				margin:0;
+				@include font-size(2.6);
+				line-height:38px;
+			}
+		}
+	}
+}
+.extra-p {
+	padding:150px 0 0 0;
+	@include breakpoint(mobile) {
+		padding:0;
+	}
+}
+
+
+/* ==========================================================================
+   NEW STORY
+   ========================================================================== */
+
+.page-template-new-story-page .display-table {
+	margin-bottom:50px;
+	&:last-of-type {
+		margin-bottom:0;
+	}
+	height:auto;
+	min-height: inherit;
+	@include breakpoint(tablet) {
+		min-height:90vh;
+		height:90%;
+		margin-bottom:40px;
+	}
+}
+.firefox .page-template-new-story-page .display-table {
+	@include breakpoint(tablet) {
+		height:90vh;
+	}
+}
+.marginTop {
+	margin-top:140px;
+	@include breakpoint(tablet) {
+		margin-top:74px;
+	}
+}
+.story {
+	padding-bottom:50px;
+	@include breakpoint(tablet) {
+		display:table-cell;
+		width:50%;
+		vertical-align:middle;
+	}
+	@include breakpoint(smallScreen) {
+		width:35%;
+	}
+}
+.stroy-image {
+	min-height: 400px;
+	@include breakpoint(tablet) {
+		display:table-cell;
+		width:50%;
+		min-height: inherit;
+	}
+	@include breakpoint(smallScreen) {
+		width:65%;
+	}
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:no-repeat;
+}
+.story-content {
+	padding:0 25px;
+	@include breakpoint(tablet) {
+		padding:0 55px;
+	}
+	position: relative;
+	h1 {
+		color: $green;
+		font-weight:400;
+		line-height:76px;
+		margin:0 0 40px 0;
+		letter-spacing:-1px;
+		@include font-size(6.4);
+	}
+	h2 {
+		color: $green;
+		font-weight:100;
+		line-height:34px;
+		margin:0;
+		letter-spacing:-1px;
+		@include font-size(2.8);
+	}
+	p {
+		@include font-size(1.8);
+		color: $green;
+		font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+	}
+}
+.slider-nav {
+	font-size:0;
+	border-top:1px solid $border;
+	border-bottom:1px solid $border;
+	text-align:center;
+	margin-top:40px;
+	a {
+		display:inline-block;
+		width:50%;
+		@include font-size(1.6);
+		color: $green;
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		font-weight:400;
+		position: relative;
+		padding:24px 0;
+		&:first-of-type {
+			border-right:1px solid $border;
+		}
+		&:hover {
+			color: $gold;
+		}
+		img {
+			position: absolute;
+			top:31px;	
+		}
+	}
+	.next img {
+		right:0;
+	}
+	.prev img {
+		left:0;
+	}
+}
+.page-template-new-story-page {
+	.flex-control-paging {
+		bottom:20px;
+		margin-left:50px;
+	}
+	.flex-control-paging li a {
+		width: 11px;
+		height: 11px;
+		display: block;
+		background: 0 0;
+		cursor: pointer;
+		text-indent: -9999px;
+		border: 1px solid $green;
+		border-radius: 20px;
+	}
+	.flex-control-paging li a.flex-active {
+		background-color: $green;
+	}
+}
+

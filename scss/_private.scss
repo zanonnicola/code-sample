@@ -1,0 +1,230 @@
+.hero-image__private {
+	background: url('../img/hero-private-dining.jpg') no-repeat center center;
+  	background-size: cover;
+}
+.no-backgroundsize .hero-image__private {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-private-dining.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-private-dining.jpg', sizingMethod='scale')";
+}
+.sw-table {
+	margin:$space 0 $space*2 0;
+	overflow: hidden;
+}
+.scroller {
+	overflow:scroll;
+	-webkit-overflow-scrolling: touch;
+}
+.table {
+	border-collapse: collapse;
+  	border-spacing: 0;
+  	width:100%;
+  	th, td {
+  		padding: 12px 15px;
+  		text-align: left;
+  	}
+  	thead {
+  		@include font-size(1.3);
+  		color: $gold;
+  		letter-spacing:1px;
+		text-transform:uppercase;
+		font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+		tr {
+			background-color: $green2;
+		}
+  	}
+  	tbody {
+  		@include font-size(1.6);
+  		color: $green;
+  		font-style:italic;
+  		tr {
+			&:nth-child(even) {
+				background-color: $green2;
+			}
+	  	}
+  		td a {
+  			color: $green;
+  			transition:color 0.5s ease;
+  			&:hover {
+  				color: $gold;
+  			}
+  		}
+  	}
+}
+.link {
+	@include font-size(1.6);
+	font-weight:400;
+	line-height:18px;
+	letter-spacing:1px;
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	color: $green;
+	transition:color 0.5s ease;
+	display:block;
+		&:hover {
+			color: $gold;
+		}
+}
+.dining-menu {
+	background-color: $green2;
+	padding: 45px 30px;
+	ul li {
+		@include font-size(1.6);
+		padding:15px 0;
+		font-weight:400;
+		line-height:18px;
+		letter-spacing:1px;
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		border-bottom:1px solid #C3DECC;
+		&:first-of-type {
+			border-top:1px solid #C3DECC;
+		}
+		a {
+			color: $green;
+			transition:color 0.5s ease;
+			display:block;
+			position: relative;
+  			&:hover {
+  				color: $gold;
+  			}
+		}
+	}
+}
+.dining-menu  li a:hover .pdf{
+	opacity:1;
+}
+.form-container {
+	padding:24px 30px;
+	border:1px solid #F1F6E7;
+	margin-top:$space;
+	@include breakpoint(smallScreen) {
+		margin-top:0;
+		padding:44px 54px;
+	}
+}
+
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+.wpcf7 {
+	p {
+		font-size:16px;
+		letter-spacing:2px;
+		text-transform:uppercase;
+		text-align:left;
+	}
+	ul {
+		text-align:left;
+		list-style-type: none;
+		margin:0;
+		padding:0;
+		font-size:0;
+		li {
+			margin-bottom: 23px;
+			@include font-size(1.2);
+			color: $gold;
+			display:block;
+			width:100%;
+			letter-spacing:1px;
+			font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+			text-transform:uppercase;
+			@include breakpoint(mobile) {
+				display:inline-block;
+				width:48%;
+				&:nth-child(odd) {
+					margin-right:4%;
+				}
+				&:last-child {
+					width:100%;
+				}
+			}
+		}
+	}
+	input {
+		@include font-size(1.6);
+		line-height: 27px;
+		color: $grey;
+		line-height:22px;
+		border:1px solid $border;
+		background: transparent;
+		padding:12px 15px 4px 15px;
+		height: 45px;
+		text-align:left;
+		width:100%;
+		font-family: 'ACaslonPro', "Hoefler Text", Georgia, Garamond, Times, serif;
+		font-style:italic;
+		&:focus {
+			color: $gold;
+		}
+	}
+	textarea {
+		line-height:22px;
+		@include font-size(1.6);
+		border:1px solid $border;
+		background: transparent;
+		padding:10px 15px;
+		text-align:left;
+		width:100%;
+		font-family: 'ACaslonPro', "Hoefler Text", Georgia, Garamond, Times, serif;
+		font-style:italic;
+	}
+	.wpcf7-not-valid-tip {
+		color: $gold;
+		font-size:13px;
+		position: absolute;
+		bottom:-27px;
+		left:0;
+		letter-spacing:1px;
+		text-transform:none;
+	}
+	input[type="submit"] {
+	border:none;
+	padding:0;
+	color:$green;
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	font-style:normal;
+	transition:color 0.5s ease;
+	text-align:right;
+		&:hover, &:active {
+			color: $gold;	
+		}
+	}
+	select {
+		border-radius: 0;
+		@include font-size(1.6);
+		font-style:italic;
+		border:1px solid $border;
+		width:100%;
+		background-color: #fff;
+		display:block;
+		line-height: 27px;
+		padding:12px 15px 4px 15px;
+		-webkit-appearance: none;
+		appearance: none;
+		-moz-appearance: none;
+		font-family: 'ACaslonPro', "Hoefler Text", Georgia, Garamond, Times, serif;
+		color: $grey;
+	}
+}
+.submit-p {
+	text-align:right;
+	margin:0;
+}
+.wpcf7 .wpcf7-not-valid-tip {
+	position:static;
+	color:red;
+}
+div.wpcf7-validation-errors {
+	border:1px solid $gold;
+	margin:0;
+	padding:$space;
+	color:red;
+	@include font-size(1.6);
+}
+div.wpcf7-mail-sent-ok {
+	border:1px solid $green;
+	margin:0;
+	padding:$space;
+	color:$green;
+	@include font-size(1.6);
+}

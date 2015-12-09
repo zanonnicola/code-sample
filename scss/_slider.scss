@@ -1,0 +1,347 @@
+/*
+ * jQuery FlexSlider v2.3.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Ville Ristimäki (@villeristi)
+ * 
+ */
+/* ====================================================================================================================
+ * RESETS
+ * ====================================================================================================================*/
+.flex-container a:hover,
+.flex-slider a:hover,
+.flex-container a:focus,
+.flex-slider a:focus {
+  outline: none;
+}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+/* ====================================================================================================================
+ * BASE STYLES
+ * ====================================================================================================================*/
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+.flexslider .slides img {
+  max-width: 100%;
+  display: inline-block;
+}
+.flexslider .slides:after {
+  content: "\0020";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+html[xmlns] .flexslider .slides {
+  display: block;
+}
+* html .flexslider .slides {
+  height: 1%;
+}
+.no-js .flexslider .slides > li:first-child {
+  display: block;
+}
+/* ====================================================================================================================
+ * DEFAULT THEME
+ * ====================================================================================================================*/
+.flexslider {
+  margin: 0;
+  @include breakpoint(tablet) {
+    position: relative;
+  }
+  z-index: 2;
+  zoom: 1;
+}
+.flexslider .slides {
+  zoom: 1;
+}
+.flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.loading .flex-viewport {
+  max-height: 300px;
+}
+.carousel li {
+  margin-right: 5px;
+}
+.flex-direction-nav {
+  *height: 0;
+  display:none;
+  @include breakpoint(desktop) {
+    display:block;
+  }
+}
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+// .flex-direction-nav a:before {
+//   width:67px;
+//   height:67px;
+//   display: inline-block;
+//   background: url('../img/icons/arrow-left.svg') no-repeat center center;
+// }
+// .flex-direction-nav a.flex-next:before {
+//   background: url('../img/icons/arrow-right.svg') no-repeat center center;
+// }
+.flex-direction-nav .flex-prev {
+  width:67px;
+  height:67px;
+  display: inline-block;
+  background: url('../img/icons/arrow-left.svg') no-repeat center center;
+  left: -50px;
+}
+.flex-direction-nav .flex-next {
+  width:67px;
+  height:67px;
+  display: inline-block;
+  background: url('../img/icons/arrow-right.svg') no-repeat center center;
+  right: -50px;
+  text-align: right;
+}
+.flexslider:hover .flex-direction-nav .flex-prev {
+  opacity: 0.7;
+  left: 10px;
+}
+.flexslider:hover .flex-direction-nav .flex-prev:hover {
+  opacity: 1;
+}
+.flexslider:hover .flex-direction-nav .flex-next {
+  opacity: 0.7;
+  right: 10px;
+}
+.flexslider:hover .flex-direction-nav .flex-next:hover {
+  opacity: 1;
+}
+.flex-direction-nav .flex-disabled {
+  opacity: 0!important;
+  filter: alpha(opacity=0);
+  cursor: default;
+}
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+.flex-pauseplay a:before {
+  font-family: "flexslider-icon";
+  font-size: 20px;
+  display: inline-block;
+  content: '\f004';
+}
+.flex-pauseplay a:hover {
+  opacity: 1;
+}
+.flex-pauseplay a .flex-play:before {
+  content: '\f003';
+}
+.flex-control-nav {
+  width: 90%;
+  position: absolute;
+  bottom: 15px;
+  z-index: 5;
+  left:0;
+  text-align: left;
+  margin-left: $spaceLeft;
+  @include breakpoint(mobile) {
+    margin-left:5%;
+    bottom: 40px;
+  }
+  
+}
+.flex-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: transparent;
+  cursor: pointer;
+  text-indent: -9999px;
+  border:1px solid #fff;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.flex-control-paging li a:hover {
+  background: #fff;
+}
+.flex-control-paging li a.flex-active {
+  background: #fff;
+  cursor: default;
+}
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+.flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+.flex-control-thumbs img {
+  width: 100%;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.flex-control-thumbs img:hover {
+  opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+}
+/* ====================================================================================================================
+ * RESPONSIVE
+ * ====================================================================================================================*/
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+    left: 10px;
+  }
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+    right: 10px;
+  }
+}
+
+
+/* ==========================================================================
+   Custom Style
+   ========================================================================== */
+.fullWidth {
+	text-align:center;
+}
+.vh {
+  height:90vh;
+  @include breakpoint(mobile){
+    height:100vh;
+  }
+  position: relative;
+}
+.slide-1 {
+  background: url('../img/hero-service.jpg') no-repeat center center;
+  background-size: cover;
+}
+.slide-2 {
+  background: url('../img/hero-steak.jpg') no-repeat center center;
+  background-size: cover;
+}
+.slide-3 {
+  background: url('../img/new-seafood-02.jpg') no-repeat center center;
+  background-size: cover;
+}
+.no-backgroundsize .slide-1 {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-service.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-service.jpg', sizingMethod='scale')";
+}
+.no-backgroundsize .slide-2 {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-steak.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-steak.jpg', sizingMethod='scale')";
+}
+.no-backgroundsize .slide-3 {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/new-seafood-02.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/new-seafood-02.jpg', sizingMethod='scale')";
+}
+.slide__content {
+  position: absolute;
+  bottom:25%;
+  padding:0 $spaceLeft;
+  @include breakpoint(mobile){
+    top:30%;
+    bottom:auto;
+    padding:0;
+    left:5%; 
+  }
+  
+  h1, h3 {
+    @include font-size(3.8);
+    line-height:46px;
+    letter-spacing:-1px;
+    color: #fff;
+    font-weight:400;
+    margin:$space 0 0 0;
+    @include breakpoint(mobile){
+      @include font-size(4.8);
+      margin:$space*2 0 0 0;
+    }
+  }
+  h2, h4 {
+    font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+    @include font-size(1.6);
+    letter-spacing:1px;
+    color: #fff;
+    font-weight:400;
+    line-height:24px;
+    margin:10px 0 0 0;
+    text-transform:uppercase;
+    @include breakpoint(mobile){
+      @include font-size(1.8);
+    }
+  }
+}
+.hide {
+  display: none !important;
+  @include breakpoint(mobile){
+    display:block !important;
+  }
+}

@@ -1,0 +1,683 @@
+@import "normalize.scss";
+@import "mixins.scss";
+@import "vars.scss";
+@import "fonts.scss";
+
+/* ==========================================================================
+   Resetting stuff
+   ========================================================================== */
+
+*, :before, :after {
+	box-sizing: border-box;
+}
+html {
+	height: 100%;
+	font-size: 62.5%;
+}
+body {
+	background-color: #fff;
+	font-family: "Hoefler Text", Georgia, Garamond, Times, serif;
+	font-weight:400; 
+	font-style:normal;
+	color: $black;
+	@include font-size(2);
+	line-height:26px;
+	-webkit-font-smoothing: antialiased;
+	width: 100%;
+  	height: 100%;
+  	overflow: hidden;
+}
+.fonts-loaded body {
+	font-family: 'ACaslonPro', Georgia, Garamond, Times, serif;
+	font-style: normal; 
+}
+img {
+  max-width: 100%;
+  height: auto !important;
+  border:none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Windsor", Georgia, Garamond, Times, serif;
+}
+.fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3, .fonts-loaded h4, .fonts-loaded h5, .fonts-loaded h6 {
+	font-family: "Windsor", Georgia, Garamond, Times, serif;
+}
+
+/* ==========================================================================
+   Global
+   ========================================================================== */
+ul {
+	list-style: none;
+	margin:0;
+	padding:0;
+}
+a {
+	text-decoration:none;
+}
+a:hover, a:active, a:focus { 
+	outline: none; 
+}
+.break-on-mobile {
+	@include breakpoint(tablet) {
+		display: none;
+	}
+}
+.display-table {
+	display:table;
+	height: 100%;
+	min-height:100%;
+}
+@import "layout.scss";
+
+/* ==========================================================================
+  Navigation
+  ========================================================================== */
+
+@import "overlay.scss";
+
+.top-nav {
+	display:none;
+	@include breakpoint(smallScreen) {
+		display:block;
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		z-index:50;
+		border-bottom:1px solid rgba(255,255,255, 0.25);
+		@include clearfix();
+		padding: 22px $spaceLeft 22px $spaceLeft;
+	}
+	transition:background-color 1s ease;
+}
+.mobile-nav {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%; 
+	z-index:50;
+	@include clearfix();
+	@include breakpoint(smallScreen) {
+		display:none;
+	}
+}
+.page-id-11 .mobile-nav, .blog .mobile-nav,
+.page-template-generic-page .mobile-nav,
+.page-template-partners-page .mobile-nav,
+.archive .mobile-nav, .page-template-book-page .mobile-nav,
+.single-post .mobile-nav, .archive .mobile-nav, .page-template-thank-page .mobile-nav,
+.error404 .mobile-nav, .page-template-new-story-page .mobile-nav, .page-template-new-gallery-page .mobile-nav {
+	background-color: $green;
+}
+.archive .top-nav, .page-template-thank-page .top-nav, .error404 .top-nav,
+.page-template-new-story-page .top-nav, .page-template-new-gallery-page .top-nav {
+	background-color: $green;
+}
+.padded {
+	padding: 22px $spaceLeft 14px $spaceLeft;
+}
+.menu-ico {
+	float:right;
+	color:#fff;
+	@include ir();
+	background: url('../img/burger.svg') no-repeat center center;
+	height:21px;
+	width:21px;
+}
+.no-svg .menu-ico {
+	background: url('../img/burger.png') no-repeat center center;
+}
+.stickit {
+	background-color: $green;
+	
+}
+.stickit2 {
+	background-color: $green;
+	
+}
+.logo {
+	position: absolute;
+	top:27px;
+	left:5%;
+	transition:opacity 0.5s ease;
+	opacity:1;
+}
+.home .logo {
+	opacity:0;
+}
+.open-ico {
+	position: relative;
+	top:2px;
+	padding-left:15px;
+}
+.stickit .logo {
+	opacity:1;
+}
+#menu-primary-nav {
+	text-align:center;
+	max-width:649px;
+	margin:0 auto;
+}
+.menu-item {
+	display:inline-block;
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	margin-right: 15px;
+	&:last-of-type {
+		margin-right:0;
+	}
+	a {
+		color: #fff;
+		text-transform:uppercase;
+		@include font-size(1.5);
+		letter-spacing:1px;
+		transition: color 0.5s ease;
+		&:hover {
+			color: $gold;
+		}
+	}
+}
+.current-menu-item a {
+	color: $gold;
+}
+.book {
+	border-top:1px solid rgba(255,255,255, 0.25);
+	border-bottom:1px solid rgba(255,255,255, 0.25);
+	@include breakpoint(smallScreen) {
+		position: absolute;
+		top:0px;
+		right:0;
+		height:100%;
+		border-left:1px solid rgba(255,255,255, 0.25);
+		border-bottom:0;
+		border-top:0;
+		z-index: 5;
+	}
+	a {
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		color: #fff;
+		text-transform:uppercase;
+		@include font-size(1.5);
+		letter-spacing:1px;
+		padding:10px $spaceLeft 10px $spaceLeft;
+		display:block;
+		transition: background-color 0.5s ease;
+		@include breakpoint(smallScreen) {
+			padding:25px 40px 22px 40px;
+		}
+		&:hover {
+			background-color: darken($green, 5%);
+		}
+	}
+} 
+.snap-drawers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: auto;
+}
+.snap-drawer-right {
+	width:267px;
+  	background-color: $green;
+  	right: 0;
+  	left:auto;
+  	z-index: 1;
+  	transition: width 0.3s ease;
+  	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: auto;
+	overflow: auto;	
+}
+
+.snap-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	z-index: 2;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	transform: translate3d(0, 0, 0);
+	transition-property: top, bottom;
+	transition-duration: .2s, .2s;
+	transition-timing-function: linear, linear;
+	backface-visibility:hidden;
+    background: #fff;
+} 
+/* ==========================================================================
+   Home Page
+   ========================================================================== */
+
+.container {
+	position: relative;
+	width:100%;
+}
+.quote {
+	padding: $space 0;
+	background-color: $green2;
+	text-align:center;
+}
+.cite {
+	@include font-size(4.2);
+	color: $green;
+	font-weight:400;
+	line-height:50px;
+	margin:0 0 20px 0;
+}
+.promo {
+	margin:$space 0 $space*2 0;
+}
+.promo__box {
+	min-height: 360px;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	display:block;
+	transition: all 0.5s ease;
+}
+.promo__text {
+	position: absolute;
+	left: 0;
+	width:100%;
+	padding:0 $spaceLeft;
+	bottom: $space;
+	z-index: 2;
+	@include breakpoint(mobile) {
+		left: $space;
+		padding:0;
+	}
+	h5 {
+		@include font-size(3.4);
+		font-weight:400;
+		color: #fff;
+		letter-spacing: -1px;
+		margin:0 0 5px 0;
+		line-height:36px;
+	}
+	h6 {
+		font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+		@include font-size(1.6);
+		font-weight:400;
+		color: #fff;
+		margin:0;
+		line-height:24px;
+		text-transform:uppercase;
+	}
+}
+h4.promo__title {
+	@include font-size(1.5);
+	letter-spacing:1px;
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	font-weight:400;
+	color: $green;
+	text-transform:uppercase;
+}
+.gradient {
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index: 1;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.75))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+
+.promo__box:hover .gradient {
+	opacity: 0.5;
+}
+.blog-feed {
+	border:6px solid $green;
+	padding: $space;
+	margin:$space*2 0;
+	h6 {
+		@include font-size(4);
+		color: $green;
+		margin:$space 0;
+		line-height:47px;
+		font-weight:400;
+	}
+}
+.category-tag {
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	@include font-size(1.5);
+	letter-spacing:1px;
+	color: $green;
+	margin:0;
+	line-height:20px;
+	text-transform:uppercase;
+}
+.excerpt {
+	@include font-size(2);
+	color: $green;
+	margin:0 0 20px 0;
+	line-height:28px;
+	font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+	a:hover {
+		color: $gold;
+	}
+}
+.read {
+	color: $green;
+	font-weight:600;
+}
+.view {
+	@include font-size(1.6);
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	color: $green;
+	&:hover {
+		color: $gold;
+	}
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+@import "footer.scss";
+
+
+/* ==========================================================================
+   Booking Widget
+   ========================================================================== */
+
+@import "book.scss";
+
+/* ==========================================================================
+   Home Slider
+   ========================================================================== */
+
+@import "slider.scss";
+
+
+/* ==========================================================================
+   Menu Page
+   ========================================================================== */
+
+
+.hero-image {
+	min-height: 67vh;
+	position: relative;
+}
+.hero-image__menu {
+	background: url('../img/hero-menus.jpg') no-repeat center center;
+  	background-size: cover;
+}
+.no-backgroundsize .hero-image__menu {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-menus.jpg', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/hero-menus.jpg', sizingMethod='scale')";
+}
+.hero-image__content {
+	position: absolute;
+	bottom:10%;
+	width:100%;
+	@include breakpoint(mobile) {
+		@include centerXY();
+		width:auto;
+		bottom:auto;
+	}
+	text-align:center;
+	h1 {
+		@include font-size(6.4);
+		line-height:76px;
+		letter-spacing:-1px;
+		color: #fff;
+		margin:0;
+		font-weight:400;
+	}
+	h2 {
+		@include font-size(1.8);
+		font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+		margin:5px 0 0 0;
+		font-weight:400;
+		line-height:28px;
+		color: #fff;
+		text-transform:uppercase;
+	}
+}
+.no-csstransforms .hero-image__content {
+	margin:10px 0 0 10px;
+}
+.page-content {
+	margin:$space 0;
+	@include breakpoint(tablet) {
+		margin:$space*3 0;
+	}
+}
+.page-id-11 .page-content, .blog .page-content,
+.page-template-new-gallery-page .page-content{
+	margin:0 0 $space*3 0;
+}
+.menu-intro {
+	@include font-size(2.2);
+	margin:$space*1.5 0;
+	@include breakpoint(smallScreen) {
+		margin:0 0 30px 0;
+		@include font-size(2.8);
+	}
+	font-weight:400;
+	line-height:30px;
+	color: $green;
+}
+.paragraph {
+	text-align:left;
+	font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+	@include font-size(2);
+	line-height: 25px;
+	margin:0 0 50px 0;
+	color: $green;
+}
+.paragraph2 {
+	text-align:left;
+	font-family: "Franklin Gothic Book", Helvetica, Arial, sans-serif;
+	@include font-size(2);
+	line-height: 25px;
+	margin:0 0 30px 0;
+	color: $green;
+}
+h4.sub-heading, h5.sub-heading, h3.sub-heading {
+	@include font-size(1.5);
+	margin:0 0 $space 0;
+	font-weight:400;
+	line-height:24px;
+	color: $green;
+	letter-spacing:1px;
+	text-transform:uppercase;
+	font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+	&.gold {
+		color: $gold;
+	}
+}
+.food-menu {
+	font-size:0;
+	li {
+		width:100%;
+		@include breakpoint(mobile) {
+			width:46%;
+			margin-right:4%;	
+		}
+		display:inline-block;
+		padding:17px 0 15px 0;
+		border-top:1px solid #F1F6E7;
+		border-bottom:1px solid #F1F6E7;
+		a {
+			@include font-size(1.6);
+			font-family: "Franklin Gothic", Helvetica, Arial, sans-serif;
+			color:$green;
+			line-height:18px;
+			display:block;
+			position: relative;
+			transition:color 0.5s ease;
+		}
+	}
+}
+.pdf {
+	position: absolute;
+	top:0;
+	right:0;
+	@include font-size(1.4);
+	color:$gold;
+	opacity:0;
+	transition:opacity 0.5s ease;
+}
+.food-menu li a:hover .pdf{
+	opacity:1;
+}
+.food-menu li a:hover {
+	color: $gold;
+}
+
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+
+@import "gallery.scss";
+
+
+/* ==========================================================================
+   Private Dining
+   ========================================================================== */
+
+@import "private.scss";
+
+
+/* ==========================================================================
+   Our story
+   ========================================================================== */
+
+@import "story.scss";
+
+
+/* ==========================================================================
+   Blog
+   ========================================================================== */
+
+@import "blog.scss";
+
+
+/* ==========================================================================
+   Find Us
+   ========================================================================== */
+
+@import "find.scss";
+
+
+/* ==========================================================================
+   Partners
+   ========================================================================== */
+
+.partner {
+
+	h3 {
+		font-family: "Windsor", "Hoefler Text", Georgia, Garamond, Times, serif;
+		color: $green;
+		text-transform:none;
+		@include font-size(2.8);
+		line-height:34px;
+		margin:0;
+	}
+	a {
+		color: $green;
+		transition:color 0.5s ease;
+		&:hover {
+			color: $gold;
+		}
+	}
+	p a {
+		text-decoration:underline;
+	}
+}
+ 
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
+@import "modal.scss";
+
+
+/* ==========================================================================
+   Book a Table
+   ========================================================================== */
+
+.opentable-horiz {
+	padding:0;
+	.btn--new-submit {
+		text-align:center;
+	}
+	#OT_partySizeLbl, #OT_dateLbl, #OT_timeLbl {
+		color: $gold !important;
+	}
+	#OT_defList dd, #OT_date {
+
+	}
+}
+.page-template-book-page-php .single-content {
+	margin:$space*2 0;
+	p {
+		&:first-of-type {
+			@include breakpoint(smallScreen) {
+				margin-top:0;
+			}
+		}
+		a {
+			text-decoration:underline;
+		}
+	}
+}
+
+
+/* ==========================================================================
+   Partner Page
+   ========================================================================== */
+
+.table-grid {
+	@include breakpoint(smallScreen) {
+		display: table;
+		width:100%;
+	}
+	padding:30px 0;
+	border-bottom:1px solid$border;
+}
+.table-cell {
+	@include breakpoint(smallScreen) {
+		display:table-cell;
+		width: 100%;
+		vertical-align:top;
+	}
+	&:first-child {
+		width:100%;
+		padding:0 0 40px 0;
+		@include breakpoint(smallScreen) {
+		width: 30%;
+		padding:0 30px 0 0;
+		}
+	}
+}
+.page-template-partners-page .table-grid  {
+	margin:$space 0;
+	&:first-of-type {
+		margin:$space*2 0 $space 0;
+	}
+}
+
+
+/* ==========================================================================
+   Custom
+   ========================================================================== */
+
+.mfp-bottom-bar {
+	margin-top: -25px;
+ }
